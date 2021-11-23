@@ -6,17 +6,17 @@ import java.sql.SQLException;
 
 import Database.DB_Connection;
 
-public class PollutionDB {
+public class CountryDB {
 	
 	private Connection connection;
 	private DB_Connection obj_DB_Connection;
 	
-	public PollutionDB() {
+	public CountryDB() {
 		DB_Connection obj_DB_Connection=new DB_Connection();
 	    connection=obj_DB_Connection.getConnection();
 	}
 	
-	public ResultSet getPollutionDataWith_St(String country) {
+	public ResultSet getCountryDataWith_St(String country) {
 		ResultSet rs=null;
 		String query;
 		PreparedStatement ps;
@@ -33,7 +33,28 @@ public class PollutionDB {
 		return rs;
 	}
 	
-	public ResultSet getPollutionDataWith_Pg(String date, String place) {
+	public String[] getCountryDataWith_Name() {
+		String[] country = new String[226];
+		ResultSet rs=null;
+		String query;
+		PreparedStatement ps;
+		try {
+			query = "SELECT Country FROM country" ;
+			ps = connection.prepareStatement(query);
+			rs = ps.executeQuery();
+			int i = 0;
+			while(rs.next()) {
+				country[i] = rs.getString("Country");
+				i++;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return country;
+	}
+	
+	public ResultSet getCountryDataWith_Pg(String date, String place) {
 		String range = Integer.toString((Integer.parseInt(date) + 6));
 
 		ResultSet rs=null;

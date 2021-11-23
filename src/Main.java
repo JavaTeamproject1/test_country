@@ -20,9 +20,10 @@ public class Main {
 	
 	private JFrame frame;
 
-	private MainPanel Mainpanel;
-	private ReligionComparePanel ReligionComparePanel;
-	private MoreInfoPanel MoreInfoPanel;
+	public MainPanel Mainpanel;
+	public ReligionComparePanel ReligionComparePanel;
+	public CountryAddPanel CountryAddPanel;
+	//public MoreInfoPanel MoreInfoPanel;
 	
 	private void menuInit() { // 메뉴바 구현
 		
@@ -34,11 +35,11 @@ public class Main {
 
 		m1 = new JMenuItem("Main Pannel");
 		m2 = new JMenuItem("Religion Pannel");
-//		m3 = new JMenuItem("More Information");
+		m3 = new JMenuItem("Add Country");
 
 		x.add(m1);
 		x.add(m2);
-//		x.add(m3);
+		x.add(m3);
 
 		mb.add(x);
 		frame.setJMenuBar(mb);
@@ -50,7 +51,8 @@ public class Main {
 			public void actionPerformed(ActionEvent arg0) {
 				Mainpanel.setVisible(true);
 				ReligionComparePanel.setVisible(false);
-				MoreInfoPanel.setVisible(false);
+				CountryAddPanel.setVisible(false);
+				//MoreInfoPanel.setVisible(false);
 			}
 		});
 
@@ -59,18 +61,20 @@ public class Main {
 			public void actionPerformed(ActionEvent arg0) {
 				Mainpanel.setVisible(false);
 				ReligionComparePanel.setVisible(true);
-				MoreInfoPanel.setVisible(false);
+				CountryAddPanel.setVisible(false);
+				//MoreInfoPanel.setVisible(false);
 			}
 		});
 
-//		m3.addActionListener(new ActionListener() {
-//			@Override
-//			public void actionPerformed(ActionEvent arg0) {
-//				Mainpanel.setVisible(false);
-//				ReligionComparePanel.setVisible(false);
-//				MoreInfoPanel.setVisible(true);
-//			}
-//		});
+		m3.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				Mainpanel.setVisible(false);
+				ReligionComparePanel.setVisible(false);
+				CountryAddPanel.setVisible(true);
+				//MoreInfoPanel.setVisible(true);
+			}
+		});
 
 	}
 
@@ -86,7 +90,9 @@ public class Main {
 		menuInit();
 		Mainpanel = new MainPanel(frame);
 		ReligionComparePanel = new ReligionComparePanel(frame);
-		MoreInfoPanel = new MoreInfoPanel(frame);
+		ReligionComparePanel.setVisible(false);
+		CountryAddPanel = new CountryAddPanel(frame);
+		CountryAddPanel.setVisible(false);
 	}
 
 	public Main() {

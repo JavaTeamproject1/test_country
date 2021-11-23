@@ -1,0 +1,262 @@
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
+import Database.CountryDB;
+
+public class CountryAddPanel extends JPanel {
+	private JTextField textField;
+	private JComboBox riskBoxArea;
+	private JTextField textField_location;
+	private JTextField textField_press;
+	private JTextField textField_language;
+	private JTextField textField_area;
+	private JTextField textField_m_g;
+	private MainPanel mainPanel;
+
+
+	public CountryAddPanel(JFrame frame) {
+		super();
+		panelInit(frame);
+	}
+
+	private void panelInit(JFrame frame) {
+		this.setBackground(new Color(225, 240, 255));
+		this.setBounds(0, 0, 750, 500);
+		frame.getContentPane().add(this);
+		this.setLayout(null);
+
+		JLabel CountryLabel = new JLabel("Add Country");
+
+		CountryLabel.setFont(new Font("Arial", Font.BOLD, 35));
+		CountryLabel.setForeground(new Color(0, 35, 110));
+		CountryLabel.setHorizontalAlignment(JLabel.CENTER);
+		CountryLabel.setBounds(120, 5, 500, 40);
+		this.add(CountryLabel);
+		
+		JLabel locationLabel = new JLabel("위치");
+	      locationLabel.setBackground(Color.WHITE);
+	      locationLabel.setBounds(49, 50, 57, 28);
+	         add(locationLabel);
+
+	         JTextField textArea_location = new JTextField();
+	         textArea_location.setBounds(118, 50, 250, 28);
+	         add(textArea_location);
+
+	         
+	         JLabel pressLabel = new JLabel("언론");
+	         pressLabel.setBackground(Color.WHITE);
+	         pressLabel.setBounds(49, 80, 57, 28);
+	         add(pressLabel);
+	         
+	         JTextField textArea_press = new JTextField();
+	         textArea_press.setBounds(118, 80, 250, 28);
+	         add(textArea_press);
+	         
+	         JLabel langLabel = new JLabel("언어");
+	         langLabel.setBackground(Color.WHITE);
+	         langLabel.setBounds(49, 110, 57, 28);
+	         add(langLabel);
+	         
+	         JTextField textArea_language = new JTextField();
+
+	         textArea_language.setBounds(118, 110, 250, 28);
+	         add(textArea_language);
+	         
+	         JLabel areaLabel = new JLabel("면적");
+	         areaLabel.setBackground(Color.WHITE);
+	         areaLabel.setBounds(49, 140, 57, 28);
+	         add(areaLabel);
+	         
+	         JTextField textArea_area = new JTextField();
+
+	         textArea_area.setBounds(118, 140, 250, 28);
+	         add(textArea_area);
+	         
+	         JLabel m_gLabel = new JLabel("주요 민족");
+	         m_gLabel.setBackground(Color.WHITE);
+	         m_gLabel.setBounds(49, 170, 57, 28);
+	         add(m_gLabel);
+	         
+	         JTextField textArea_m_g = new JTextField();
+	         textArea_m_g.setBounds(118, 170, 250, 28);
+	         add(textArea_m_g);
+	         
+	         JLabel codeLabel = new JLabel("국가 코드");
+	         codeLabel.setBackground(Color.WHITE);
+	         codeLabel.setBounds(49, 200, 57, 28);
+	         add(codeLabel);
+	         
+	         JTextField textArea_code = new JTextField();
+	         textArea_code.setBounds(118, 200, 250, 28);
+	         add(textArea_code);
+	         
+	         JLabel capitalLabel = new JLabel("수도");
+	         capitalLabel.setBackground(Color.WHITE);
+	         capitalLabel.setBounds(49, 230, 57, 28);
+	         add(capitalLabel);
+	         
+	         JTextField textArea_capital = new JTextField();
+	         textArea_capital.setBounds(118, 230, 250, 28);
+	         add(textArea_capital);
+	         
+	         JLabel climateLabel = new JLabel("기후");
+	         climateLabel.setBackground(Color.WHITE);
+	         climateLabel.setBounds(49, 260, 57, 28);
+	         add(climateLabel);
+	         
+	         JTextField textArea_climate = new JTextField();
+	         textArea_climate.setBounds(118, 260, 250, 28);
+	         add(textArea_climate);
+	         
+	         JLabel m_cLabel = new JLabel("주요 도시");
+	         m_cLabel.setBackground(Color.WHITE);
+	         m_cLabel.setBounds(49, 290, 57, 28);
+	         add(m_cLabel);
+	         
+	         JTextField textArea_m_c = new JTextField();
+	         textArea_m_c.setBounds(118, 290, 250, 28);
+	         add(textArea_m_c);
+	         
+	         JLabel religionLabel = new JLabel("종교");
+	         religionLabel.setBackground(Color.WHITE);
+	         religionLabel.setBounds(580, 50, 57, 28);
+	         add(religionLabel);
+	         
+	         JLabel christianLabel = new JLabel("Christian");
+	         christianLabel.setBackground(Color.WHITE);
+	         christianLabel.setBounds(400, 80, 57, 28);
+	         add(christianLabel);
+	         
+	         JTextField textArea_christian = new JTextField();
+	         textArea_christian.setBounds(460, 80, 250, 28);
+	         add(textArea_christian);
+	         
+	         JLabel catholicLabel = new JLabel("Catholic");
+	         catholicLabel.setBackground(Color.WHITE);
+	         catholicLabel.setBounds(400, 110, 57, 28);
+	         add(catholicLabel);
+	         
+	         JTextField textArea_catholic = new JTextField();
+	         textArea_catholic.setBounds(460, 110, 250, 28);
+	         add(textArea_catholic);
+	         
+	         JLabel islamLabel = new JLabel("Islamc");
+	         islamLabel.setBackground(Color.WHITE);
+	         islamLabel.setBounds(400, 140, 57, 28);
+	         add(islamLabel);
+	         
+	         JTextField textArea_islam = new JTextField();
+	         textArea_islam.setBounds(460, 140, 250, 28);
+	         add(textArea_islam);
+	         
+	         JLabel buddhismLabel = new JLabel("Buddhism");
+	         buddhismLabel.setBackground(Color.WHITE);
+	         buddhismLabel.setBounds(400, 170, 57, 28);
+	         add(buddhismLabel);
+	         
+	         JTextField textArea_buddhism = new JTextField();
+	         textArea_buddhism.setBounds(460, 170, 250, 28);
+	         add(textArea_buddhism);
+	         
+	         JLabel hinduismLabel = new JLabel("Hinduism");
+	         hinduismLabel.setBackground(Color.WHITE);
+	         hinduismLabel.setBounds(400, 200, 57, 28);
+	         add(hinduismLabel);
+	         
+	         JTextField textArea_hinduism = new JTextField();
+	         textArea_hinduism.setBounds(460, 200, 250, 28);
+	         add(textArea_hinduism);
+	         
+	         JLabel ETCLabel = new JLabel("ETC");
+	         ETCLabel.setBackground(Color.WHITE);
+	         ETCLabel.setBounds(400, 230, 57, 28);
+	         add(ETCLabel);
+	         
+	         JTextField textArea_ETC = new JTextField();
+	         textArea_ETC.setBounds(460, 230, 250, 28);
+	         add(textArea_ETC);
+	      
+	      JButton btnApply = new JButton("적용");
+	         btnApply.addActionListener(new ActionListener() {
+
+	          
+	         @Override
+	         public void actionPerformed(ActionEvent e) {
+	            // TODO Auto-generated method stub
+	            String Area;
+	          
+	          ResultSet rs;
+	          
+	          Area = MainPanel.Area;
+	          CountryDB pollution = new CountryDB();
+	         rs = pollution.getCountryDataWith_St(Area);
+	         try {
+	            rs.next();
+	            if (rs.getString("Press") == null)
+	               textArea_press.setText("");
+	            else
+	               textArea_press.setText((String) (rs.getString("Code")));
+
+	            if (rs.getString("Language") == null)
+	               textArea_language.setText("");
+	            else
+	               textArea_language.setText((String) (rs.getString("Language")));
+
+	            if (rs.getString("Area") == null)
+	               textArea_area.setText("");
+	            else
+	               textArea_area.setText((String) (rs.getString("Area")));
+
+	            if (rs.getString("Major Ethnic Group") == null)
+	               textArea_m_g.setText("");
+	            else
+	               textArea_m_g.setText((String) (rs.getString("Major Ethnic Group")));
+	            
+	            if (rs.getString("Location") == null)
+	               textArea_location.setText("");
+	            else
+	               textArea_location.setText((String) (rs.getString("Location")));
+	            
+
+	         } catch (SQLException e1) {
+	            // TODO Auto-generated catch block
+	            e1.printStackTrace();
+	         }
+
+	      }
+
+	      private String String(JComboBox areaBox) {
+	         return null;
+	      }
+
+	         
+	            
+	         });
+	         btnApply.setBounds(498, 370, 126, 23);
+	         this.add(btnApply);
+	      
+	      JButton btnBack = new JButton("뒤 로");
+			btnBack.addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					setVisible(false);
+					mainPanel.setVisible(true);
+				}
+			});
+			
+			btnBack.setBounds(498, 400, 126, 23);
+			this.add(btnBack);
+	}
+}

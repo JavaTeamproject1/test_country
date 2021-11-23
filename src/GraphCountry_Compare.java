@@ -3,7 +3,7 @@ import java.awt.Graphics;
 
 import javax.swing.JPanel;
 
-public class GraphPollution_Compare extends JPanel {
+public class GraphCountry_Compare extends JPanel {
 	private int Fd = 0;
 	private int Ud = 0;
 
