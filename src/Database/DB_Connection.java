@@ -10,7 +10,7 @@ public class DB_Connection {
 		String url = "jdbc:mysql://localhost:3306/country?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			connection = DriverManager.getConnection(url,"root", "park1234");
+			connection = DriverManager.getConnection(url,"root", "gur0533");
 
 			
 		} catch (ClassNotFoundException e) {

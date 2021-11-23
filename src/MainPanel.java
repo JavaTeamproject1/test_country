@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -21,7 +22,10 @@ public class MainPanel extends JPanel {
 	private MainText Text1;
 	private MainGraph_Polygonal Graphpanel_2;
 	private JComboBox main_month, main_date, AreaBox;
-
+	private MainPanel Mainpanel;
+	private ReligionComparePanel ReligionComparePanel;
+	private MoreInfoPanel MoreInfoPanel;
+	
 	public MainPanel(JFrame frame) {
 		super();
 		panelInit(frame);
@@ -32,7 +36,7 @@ public class MainPanel extends JPanel {
 	private void panelInit(JFrame frame) {
 		// 메인 화면 패널
 		this.setBackground(new Color(225, 240, 255));
-		this.setBounds(0, 0, 636, 360);
+		this.setBounds(0, 0, 750, 500);
 		frame.getContentPane().add(this);
 		this.setLayout(null);
 
@@ -41,7 +45,7 @@ public class MainPanel extends JPanel {
 		tilteLabel.setFont(new Font("Arial", Font.BOLD, 35));
 		tilteLabel.setForeground(new Color(0, 35, 110));
 		tilteLabel.setHorizontalAlignment(JLabel.CENTER);
-		tilteLabel.setBounds(70, 4, 500, 40);
+		tilteLabel.setBounds(120, 4, 500, 40);
 		this.add(tilteLabel);
 
 //      JLabel lblDay = new JLabel("날짜 입력");
@@ -72,7 +76,7 @@ public class MainPanel extends JPanel {
 //      this.add(main_date);
 
 		JLabel lblSerch = new JLabel("나라 검색");
-		lblSerch.setBounds(180, 290, 57, 15);
+		lblSerch.setBounds(180, 380, 57, 15);
 		this.add(lblSerch);
 
 		// sample list
@@ -97,43 +101,43 @@ public class MainPanel extends JPanel {
 				"프랑스령 폴리네시아", "피지", "핀란드", "필리핀", "핏케언 섬", "헝가리", "호주", "홍콩" };
 
 		AreaBox = new JComboBox(Arealist);
-		AreaBox.setBounds(240, 290, 116, 19);
+		AreaBox.setBounds(240, 380, 116, 19);
 		this.add(AreaBox);
 
 		JLabel codeLabel = new JLabel("국가 코드");
 		codeLabel.setBackground(Color.WHITE);
-		codeLabel.setBounds(49, 73, 57, 28);
+		codeLabel.setBounds(25, 40, 57, 28);
 		add(codeLabel);
 
 		JTextArea textArea_code = new JTextArea();
-		textArea_code.setBounds(118, 73, 476, 28);
+		textArea_code.setBounds(25, 70, 690, 28);
 		add(textArea_code);
 
 		JLabel capitalLabel = new JLabel("수도");
 		capitalLabel.setBackground(Color.WHITE);
-		capitalLabel.setBounds(49, 111, 57, 28);
+		capitalLabel.setBounds(25, 100, 57, 28);
 		add(capitalLabel);
 
 		JTextArea textArea_cap = new JTextArea();
-		textArea_cap.setBounds(118, 111, 476, 28);
+		textArea_cap.setBounds(25, 130, 690, 28);
 		add(textArea_cap);
 
 		JLabel cliLabel = new JLabel("기후");
 		cliLabel.setBackground(Color.WHITE);
-		cliLabel.setBounds(49, 149, 57, 28);
+		cliLabel.setBounds(25, 160, 57, 28);
 		add(cliLabel);
 
 		JTextArea textArea_cli = new JTextArea();
-		textArea_cli.setBounds(118, 153, 476, 28);
+		textArea_cli.setBounds(25, 190, 690, 28);
 		add(textArea_cli);
 
 		JLabel m_cLabel = new JLabel("주요 도시");
 		m_cLabel.setBackground(Color.WHITE);
-		m_cLabel.setBounds(49, 187, 57, 28);
+		m_cLabel.setBounds(25, 220, 57, 28);
 		add(m_cLabel);
 
 		JTextArea textArea_m_c = new JTextArea();
-		textArea_m_c.setBounds(118, 191, 476, 28);
+		textArea_m_c.setBounds(25, 250, 690, 28);
 		add(textArea_m_c);
 
 		JButton btnApply = new JButton("국가 적용");
@@ -187,7 +191,7 @@ public class MainPanel extends JPanel {
 			}
 		});
 
-		btnApply.setBounds(498, 239, 126, 23);
+		btnApply.setBounds(498, 310, 126, 23);
 		this.add(btnApply);
 
 		// 종료 버튼
@@ -197,8 +201,21 @@ public class MainPanel extends JPanel {
 				System.exit(0);
 			}
 		});
-		btnExit.setBounds(498, 271, 126, 23);
+		btnExit.setBounds(498, 340, 126, 23);
 		this.add(btnExit);
+		
+		JButton btnMore = new JButton("더 보기");
+		btnMore.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				MoreInfoPanel = new MoreInfoPanel(frame);
+				MoreInfoPanel.setVisible(true);
+			}
+		});
+		
+		btnMore.setBounds(498, 370, 126, 23);
+		this.add(btnMore);
 
 	}
 

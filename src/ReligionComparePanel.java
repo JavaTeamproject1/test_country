@@ -27,7 +27,7 @@ public class ReligionComparePanel extends JPanel {
 
 	private void panelInit(JFrame frame) {
 		this.setBackground(new Color(140, 240, 200));
-		this.setBounds(0, 0, 636, 360);
+		this.setBounds(0, 0, 750, 500);
 		frame.getContentPane().add(this);
 		this.setLayout(null);
 
@@ -36,7 +36,7 @@ public class ReligionComparePanel extends JPanel {
 		CompareNewLabel.setFont(new Font("Arial", Font.BOLD, 35));
 		CompareNewLabel.setForeground(new Color(0, 35, 110));
 		CompareNewLabel.setHorizontalAlignment(JLabel.CENTER);
-		CompareNewLabel.setBounds(70, 5, 500, 40);
+		CompareNewLabel.setBounds(120, 5, 500, 40);
 		this.add(CompareNewLabel);
 
 		String Arealist[] = { "가나", "가봉", "가이아나", "감비아", "건지", "과들루프", "과테말라", "괌", "교황청", "그레나다", "그리스", "그린란드", "기니",
@@ -61,14 +61,14 @@ public class ReligionComparePanel extends JPanel {
 
 		//// 지역선택1
 		comboBoxArea = new JComboBox(Arealist);
-		comboBoxArea.setBounds(96, 317, 116, 19);
+		comboBoxArea.setBounds(220, 340, 116, 19);
 		this.add(comboBoxArea);
 
 		JLabel A_compareLabel = new JLabel("Country");
-		A_compareLabel.setBounds(27, 319, 57, 15);
+		A_compareLabel.setBounds(170, 340, 57, 15);
 		this.add(A_compareLabel);
 
-		JButton btnApply = new JButton("날짜 적용");
+		JButton btnApply = new JButton("국가 적용");
 		btnApply.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
@@ -133,7 +133,7 @@ public class ReligionComparePanel extends JPanel {
 				return null;
 			}
 		});
-		btnApply.setBounds(498, 239, 126, 23);
+		btnApply.setBounds(420, 340, 126, 23);
 		this.add(btnApply);
 
 	}
@@ -142,7 +142,7 @@ public class ReligionComparePanel extends JPanel {
 		Graphstick = new RelGraphStick();
 		Graphstick.setBorder(BorderFactory.createLineBorder(new Color(0, 35, 110)));
 		Graphstick.setBackground(Color.white);
-		Graphstick.setBounds(27, 48, 447, 214);
+		Graphstick.setBounds(140, 80, 447, 214);
 		this.add(Graphstick);
 	}
 }

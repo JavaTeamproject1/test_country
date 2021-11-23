@@ -34,15 +34,15 @@ public class Main {
 
 		m1 = new JMenuItem("Main Pannel");
 		m2 = new JMenuItem("Religion Pannel");
-		m3 = new JMenuItem("More Information");
+//		m3 = new JMenuItem("More Information");
 
 		x.add(m1);
 		x.add(m2);
-		x.add(m3);
+//		x.add(m3);
 
 		mb.add(x);
 		frame.setJMenuBar(mb);
-		frame.setSize(650, 420);
+		frame.setSize(750, 500);
 		frame.setVisible(true);
 
 		m1.addActionListener(new ActionListener() {
@@ -63,14 +63,14 @@ public class Main {
 			}
 		});
 
-		m3.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				Mainpanel.setVisible(false);
-				ReligionComparePanel.setVisible(false);
-				MoreInfoPanel.setVisible(true);
-			}
-		});
+//		m3.addActionListener(new ActionListener() {
+//			@Override
+//			public void actionPerformed(ActionEvent arg0) {
+//				Mainpanel.setVisible(false);
+//				ReligionComparePanel.setVisible(false);
+//				MoreInfoPanel.setVisible(true);
+//			}
+//		});
 
 	}
 
