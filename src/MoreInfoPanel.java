@@ -115,7 +115,7 @@ public class MoreInfoPanel extends JPanel {
 	            if (rs.getString("Press") == null)
 	               textArea_press.setText("");
 	            else
-	               textArea_press.setText((String) (rs.getString("Code")));
+	               textArea_press.setText((String) (rs.getString("Press")));
 
 	            if (rs.getString("Language") == null)
 	               textArea_language.setText("");

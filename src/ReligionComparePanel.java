@@ -30,7 +30,6 @@ public class ReligionComparePanel extends JPanel {
 		frame.getContentPane().add(this);
 		this.setLayout(null);
 
-		// 지역별 오염도 화면 타이틀
 		JLabel CompareNewLabel = new JLabel("Religion Compare");
 		CompareNewLabel.setFont(new Font("Arial", Font.BOLD, 35));
 		CompareNewLabel.setForeground(new Color(0, 35, 110));
@@ -41,7 +40,7 @@ public class ReligionComparePanel extends JPanel {
 		String Arealist[] = new String[226];
 		CountryDB country = new CountryDB();
 		Arealist = country.getCountryDataWith_Name();
-		//// 지역선택1
+		
 		comboBoxArea = new JComboBox(Arealist);
 		comboBoxArea.setBounds(220, 340, 116, 19);
 		this.add(comboBoxArea);
@@ -55,14 +54,12 @@ public class ReligionComparePanel extends JPanel {
 
 			public void actionPerformed(ActionEvent e) {
 
-				String Area;// 지역
+				String Area;
 
 				ResultSet rs;
 
-				// 지역값 받아오기
 				Area = (String) comboBoxArea.getSelectedItem();
 
-				// 데이터 불러오기
 				CountryDB pollution = new CountryDB();
 				rs = pollution.getCountryDataWith_St(Area);
 

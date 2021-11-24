@@ -29,9 +29,9 @@ public class GraphCountry_Compare extends JPanel {
 		g.setColor(new Color(210, 150, 255));
 		g.fillRect(80, 87, Ud, 20);
 
-		// �Ʒ� ���ض���
-		g.setColor(Color.BLACK);// ����
-		g.drawString("0", 80, 145);// ���� x y 80, y+140 ����
+		
+		g.setColor(Color.BLACK);
+		g.drawString("0", 80, 145);
 		g.setColor(Color.BLACK);
 		g.drawString("30", 105, 145);
 		g.setColor(Color.BLACK);
@@ -41,10 +41,8 @@ public class GraphCountry_Compare extends JPanel {
 		g.setColor(Color.BLACK);
 		g.drawString("120", 200, 145);
 
-		// �ض���
 		g.drawLine(80, 130, 207, 130);
 
-		// ��¦����
 		int xx = 80;
 		for (int i = 0; i <= 5; i++) {
 			g.drawLine(xx, 125, xx, 130);

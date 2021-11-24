@@ -14,6 +14,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import Database.CountryDB;
+import Database.Create_CSV;
 
 public class CountryAddPanel extends JPanel {
 	private JTextField textField;
@@ -24,7 +25,8 @@ public class CountryAddPanel extends JPanel {
 	private JTextField textField_area;
 	private JTextField textField_m_g;
 	private MainPanel mainPanel;
-
+	private CountryDB db = new CountryDB();
+	private Create_CSV csv = new Create_CSV(); 
 
 	public CountryAddPanel(JFrame frame) {
 		super();
@@ -37,13 +39,13 @@ public class CountryAddPanel extends JPanel {
 		frame.getContentPane().add(this);
 		this.setLayout(null);
 
-		JLabel CountryLabel = new JLabel("Add Country");
+		JLabel Title = new JLabel("Add Country");
 
-		CountryLabel.setFont(new Font("Arial", Font.BOLD, 35));
-		CountryLabel.setForeground(new Color(0, 35, 110));
-		CountryLabel.setHorizontalAlignment(JLabel.CENTER);
-		CountryLabel.setBounds(120, 5, 500, 40);
-		this.add(CountryLabel);
+		Title.setFont(new Font("Arial", Font.BOLD, 35));
+		Title.setForeground(new Color(0, 35, 110));
+		Title.setHorizontalAlignment(JLabel.CENTER);
+		Title.setBounds(120, 5, 500, 40);
+		this.add(Title);
 		
 		JLabel locationLabel = new JLabel("위치");
 	      locationLabel.setBackground(Color.WHITE);
@@ -187,76 +189,62 @@ public class CountryAddPanel extends JPanel {
 	         JTextField textArea_ETC = new JTextField();
 	         textArea_ETC.setBounds(460, 230, 250, 28);
 	         add(textArea_ETC);
+	         
+	         JLabel CountryLabel = new JLabel("국가이름");
+	         CountryLabel.setBackground(Color.white);
+	         CountryLabel.setBounds(400,260,57,28);
+	         add(CountryLabel);
+	         
+	         JTextField textArea_Country = new JTextField();
+	         textArea_Country.setBounds(460, 260, 250, 28);
+	         add(textArea_Country);
+	         
+	         
 	      
-	      JButton btnApply = new JButton("적용");
+	      
+	      JButton btnApply = new JButton("추가");
 	         btnApply.addActionListener(new ActionListener() {
-
-	          
+	        	 
+	         
 	         @Override
 	         public void actionPerformed(ActionEvent e) {
-	            // TODO Auto-generated method stub
-	            String Area;
-	          
-	          ResultSet rs;
-	          
-	          Area = MainPanel.Area;
-	          CountryDB pollution = new CountryDB();
-	         rs = pollution.getCountryDataWith_St(Area);
-	         try {
-	            rs.next();
-	            if (rs.getString("Press") == null)
-	               textArea_press.setText("");
-	            else
-	               textArea_press.setText((String) (rs.getString("Code")));
-
-	            if (rs.getString("Language") == null)
-	               textArea_language.setText("");
-	            else
-	               textArea_language.setText((String) (rs.getString("Language")));
-
-	            if (rs.getString("Area") == null)
-	               textArea_area.setText("");
-	            else
-	               textArea_area.setText((String) (rs.getString("Area")));
-
-	            if (rs.getString("Major Ethnic Group") == null)
-	               textArea_m_g.setText("");
-	            else
-	               textArea_m_g.setText((String) (rs.getString("Major Ethnic Group")));
-	            
-	            if (rs.getString("Location") == null)
-	               textArea_location.setText("");
-	            else
-	               textArea_location.setText((String) (rs.getString("Location")));
-	            
-
-	         } catch (SQLException e1) {
-	            // TODO Auto-generated catch block
-	            e1.printStackTrace();
-	         }
-
-	      }
-
-	      private String String(JComboBox areaBox) {
-	         return null;
-	      }
-
-	         
-	            
-	         });
+	
+	        	 String[] world = new String[16];
+	        	 world[0] = textArea_Country.getText();
+	        	 world[1] = textArea_code.getText();
+	        	 world[2] = textArea_capital.getText();
+	        	 world[3] = textArea_climate.getText();
+	        	 world[4] = textArea_location.getText();
+	        	 world[5] = textArea_m_c.getText();
+	        	 world[6] = textArea_m_g.getText();
+	        	 world[7] = textArea_press.getText();
+	        	 world[8] = textArea_area.getText();
+	        	 world[9] = textArea_language.getText();
+	        	 world[10] = textArea_christian.getText();
+	        	 world[11] = textArea_catholic.getText();
+	        	 world[12] = textArea_islam.getText();
+	        	 world[13] = textArea_buddhism.getText();
+	        	 world[14] = textArea_hinduism.getText();
+	        	 world[15] = textArea_ETC.getText();
+	        	 
+	        	 db.SaveDb(world);
+	         } 
+	     });
 	         btnApply.setBounds(498, 370, 126, 23);
 	         this.add(btnApply);
-	      
-	      JButton btnBack = new JButton("뒤 로");
-			btnBack.addActionListener(new ActionListener() {
-				@Override
-				public void actionPerformed(ActionEvent e) {
-					setVisible(false);
-					mainPanel.setVisible(true);
-				}
-			});
-			
-			btnBack.setBounds(498, 400, 126, 23);
-			this.add(btnBack);
+	         
+	         JButton btnCreateF = new JButton("Create File");
+	         btnApply.addActionListener(new ActionListener() {
+	        	 
+	         
+	         @Override
+	         public void actionPerformed(ActionEvent e) {
+	        	 csv.SaveCSV();
+	         }
+
+	     });
+	         btnCreateF.setBounds(498, 400, 126, 23);
+	         this.add(btnCreateF);
+
 	}
 }

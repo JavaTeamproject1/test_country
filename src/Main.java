@@ -23,7 +23,6 @@ public class Main {
 	public MainPanel Mainpanel;
 	public ReligionComparePanel ReligionComparePanel;
 	public CountryAddPanel CountryAddPanel;
-	//public MoreInfoPanel MoreInfoPanel;
 	
 	private void menuInit() { // 메뉴바 구현
 		

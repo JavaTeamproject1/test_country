@@ -21,7 +21,6 @@ import Database.CountryDB;
 public class MainPanel extends JPanel {
 	private JButton btnNewButton;
 	private JButton btnGraphType;
-	private MainText Text1;
 	private JComboBox main_month, main_date, AreaBox;
 	private MainPanel MainPanel;
 	private ReligionComparePanel ReligionComparePanel;
@@ -31,8 +30,6 @@ public class MainPanel extends JPanel {
 	public MainPanel(JFrame frame) {
 		super();
 		panelInit(frame);
-//      graphInit();
-//      graphInit_2();
 	}
 
 	private void panelInit(JFrame frame) {
@@ -49,33 +46,6 @@ public class MainPanel extends JPanel {
 		tilteLabel.setHorizontalAlignment(JLabel.CENTER);
 		tilteLabel.setBounds(120, 4, 500, 40);
 		this.add(tilteLabel);
-
-//      JLabel lblDay = new JLabel("날짜 입력");
-//      lblDay.setBounds(27, 288, 57, 15);
-//      this.add(lblDay);
-
-		// 월
-//      String MonthList[] = new String[12];
-//      for (int m = 1; m < 13; m++) {
-//         MonthList[m - 1] = Integer.toString(m) + "월";
-//      }
-
-//      main_month = new JComboBox(MonthList);
-//      main_month.setBounds(96, 285, 116, 21);
-//      main_month.setSize(new Dimension(55, 20));
-//      this.add(main_month);
-
-		// 날짜 리스트
-//      String DateList[] = new String[31];
-//      for (int d = 1; d < 32; d++) {
-//         DateList[d - 1] = Integer.toString(d) + "일";
-//      }
-
-		// 일
-//      main_date = new JComboBox(DateList);
-//      main_date.setBounds(155, 285, 116, 21);
-//      main_date.setSize(new Dimension(55, 20));
-//      this.add(main_date);
 
 		JLabel lblSerch = new JLabel("나라 검색");
 		lblSerch.setBounds(180, 380, 57, 15);
@@ -130,17 +100,14 @@ public class MainPanel extends JPanel {
 
 			public void actionPerformed(ActionEvent e) {
 
-//				String Area;// 지역
-
 				ResultSet rs, rs1;
 
-				// 지역값 받아오기
+				
 				Area = (String) AreaBox.getSelectedItem();
 
-				// 데이터 불러오기
+			
 				CountryDB country = new CountryDB();
 				rs = country.getCountryDataWith_St(Area);
-//            rs1 = pollution.getPollutionDataWith_Pg(main_check.getDate(), Area);
 
 				try {
 					rs.next();
