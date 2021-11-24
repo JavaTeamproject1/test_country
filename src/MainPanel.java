@@ -32,6 +32,7 @@ public class MainPanel extends JPanel {
 	}
 
 	private void panelInit(JFrame frame) {
+
 		// 메인 화면 패널
 		this.setBackground(new Color(225, 240, 255));
 		this.setBounds(0, 0, 750, 500);
@@ -94,8 +95,6 @@ public class MainPanel extends JPanel {
 		textArea_m_c.setBounds(25, 250, 690, 28);
 		add(textArea_m_c);
 		
-
-
 		JButton btnApply = new JButton("국가 적용");
 		btnApply.addActionListener(new ActionListener() {
 
@@ -162,8 +161,7 @@ public class MainPanel extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
-				MoreInfoPanel = new MoreInfoPanel(frame, MainPanel.this);
-				setMoreVisible(true);
+				setMoreVisible(MoreInfoPanel, true);
 			}
 		});
 		
@@ -172,9 +170,14 @@ public class MainPanel extends JPanel {
 
 	}
 	
+	public MoreInfoPanel createMorePanel(JFrame frame) {
+		MoreInfoPanel = new MoreInfoPanel(frame, MainPanel.this);
+		setMoreVisible(MoreInfoPanel, false);
+		return MoreInfoPanel;
+	}
 	
-	public void setMoreVisible(boolean flag) {
-		MoreInfoPanel.setVisible(flag);
+	public void setMoreVisible(MoreInfoPanel mip, boolean flag) {
+		mip.setVisible(flag);
 	}
 
 }

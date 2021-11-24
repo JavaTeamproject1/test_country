@@ -23,6 +23,7 @@ public class Main {
 	public MainPanel Mainpanel;
 	public ReligionComparePanel ReligionComparePanel;
 	public CountryAddPanel CountryAddPanel;
+	public MoreInfoPanel MoreInfoPanel;
 	
 	private void menuInit() { // 메뉴바 구현
 		
@@ -51,7 +52,7 @@ public class Main {
 				Mainpanel.setVisible(true);
 				ReligionComparePanel.setVisible(false);
 				CountryAddPanel.setVisible(false);
-				Mainpanel.setMoreVisible(false);
+				Mainpanel.setMoreVisible(MoreInfoPanel, false);
 				//MoreInfoPanel.setVisible(false);
 			}
 		});
@@ -62,7 +63,7 @@ public class Main {
 				Mainpanel.setVisible(false);
 				ReligionComparePanel.setVisible(true);
 				CountryAddPanel.setVisible(false);
-				Mainpanel.setMoreVisible(false);
+				Mainpanel.setMoreVisible(MoreInfoPanel, false);
 				//MoreInfoPanel.setVisible(false);
 			}
 		});
@@ -73,7 +74,7 @@ public class Main {
 				Mainpanel.setVisible(false);
 				ReligionComparePanel.setVisible(false);
 				CountryAddPanel.setVisible(true);
-				Mainpanel.setMoreVisible(false);
+				Mainpanel.setMoreVisible(MoreInfoPanel, false);
 				//MoreInfoPanel.setVisible(true);
 			}
 		});
@@ -96,6 +97,9 @@ public class Main {
 		ReligionComparePanel.setVisible(false);
 		CountryAddPanel = new CountryAddPanel(frame);
 		CountryAddPanel.setVisible(false);
+		MoreInfoPanel = Mainpanel.createMorePanel(frame);
+		Mainpanel.setMoreVisible(MoreInfoPanel, false);
+		Mainpanel.setVisible(true);
 	}
 
 	public Main() {
@@ -108,7 +112,6 @@ public class Main {
 			public void run() {
 				try {
 					Main window = new Main();
-					
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
