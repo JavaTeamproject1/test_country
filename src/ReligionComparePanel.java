@@ -10,6 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import Database.CountryDB;
@@ -114,14 +115,58 @@ public class ReligionComparePanel extends JPanel {
 		});
 		btnApply.setBounds(420, 340, 126, 23);
 		this.add(btnApply);
+		
+		JLabel langLabel = new JLabel("종교 정보");
+        langLabel.setBackground(Color.WHITE);
+        langLabel.setBounds(595, 80, 57, 28);
+        add(langLabel);
+		
+		JButton btnChriCa = new JButton("Christian,Catholic");
+		btnChriCa.addActionListener(new ActionListener() {
 
+			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(null, "내용","Christian,Catholic",JOptionPane.PLAIN_MESSAGE);
+			}
+		});
+		btnChriCa.setBounds(550, 120, 140, 23);
+		this.add(btnChriCa);
+
+		JButton btnIslam = new JButton("Islam");
+		btnIslam.addActionListener(new ActionListener() {
+
+			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(null, "내용","Islam",JOptionPane.PLAIN_MESSAGE);
+			}
+		});
+		btnIslam.setBounds(550, 160, 140, 23);
+		this.add(btnIslam);
+		
+		JButton btnBuddhism = new JButton("Buddhism");
+		btnBuddhism.addActionListener(new ActionListener() {
+
+			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(null, "내용","Buddhism",JOptionPane.PLAIN_MESSAGE);
+			}
+		});
+		btnBuddhism.setBounds(550, 200, 140, 23);
+		this.add(btnBuddhism);
+		
+		JButton btnHindusim = new JButton("Hindusim");
+		btnHindusim.addActionListener(new ActionListener() {
+
+			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(null, "내용","Hindusim",JOptionPane.PLAIN_MESSAGE);
+			}
+		});
+		btnHindusim.setBounds(550, 240, 140, 23);
+		this.add(btnHindusim);
 	}
 
 	private void graphInit() {
 		Graphstick = new RelGraphStick();
 		Graphstick.setBorder(BorderFactory.createLineBorder(new Color(0, 35, 110)));
 		Graphstick.setBackground(Color.white);
-		Graphstick.setBounds(140, 80, 447, 214);
+		Graphstick.setBounds(70, 80, 447, 214);
 		this.add(Graphstick);
 	}
 }
