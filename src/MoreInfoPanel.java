@@ -12,6 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.JTextPane;
 
 import Database.CountryDB;
 
@@ -62,10 +63,9 @@ public class MoreInfoPanel extends JPanel {
 	         pressLabel.setBounds(49, 135, 57, 28);
 	         add(pressLabel);
 	         
-	         JTextArea textArea_press = new JTextArea();
-
-	         textArea_press.setBounds(118, 135, 476, 28);
-	         add(textArea_press);
+	         JTextPane textPane_press = new JTextPane();
+	         textPane_press.setBounds(118, 128, 476, 40);
+	         add(textPane_press);
 	         
 	         JLabel langLabel = new JLabel("언어");
 	         langLabel.setBackground(Color.WHITE);
@@ -73,7 +73,6 @@ public class MoreInfoPanel extends JPanel {
 	         add(langLabel);
 	         
 	         JTextArea textArea_language = new JTextArea();
-
 	         textArea_language.setBounds(118, 195, 476, 28);
 	         add(textArea_language);
 	         
@@ -113,9 +112,9 @@ public class MoreInfoPanel extends JPanel {
 	         try {
 	            rs.next();
 	            if (rs.getString("Press") == null)
-	               textArea_press.setText("");
+	               textPane_press.setText("");
 	            else
-	               textArea_press.setText((String) (rs.getString("Press")));
+	               textPane_press.setText((String) (rs.getString("Press")));
 
 	            if (rs.getString("Language") == null)
 	               textArea_language.setText("");
@@ -167,6 +166,7 @@ public class MoreInfoPanel extends JPanel {
 			btnBack.setBounds(498, 400, 126, 23);
 			this.add(btnBack);
 	}
+
 
 
 }

@@ -51,6 +51,7 @@ public class Main {
 				Mainpanel.setVisible(true);
 				ReligionComparePanel.setVisible(false);
 				CountryAddPanel.setVisible(false);
+				Mainpanel.setMoreVisible(false);
 				//MoreInfoPanel.setVisible(false);
 			}
 		});
@@ -61,6 +62,7 @@ public class Main {
 				Mainpanel.setVisible(false);
 				ReligionComparePanel.setVisible(true);
 				CountryAddPanel.setVisible(false);
+				Mainpanel.setMoreVisible(false);
 				//MoreInfoPanel.setVisible(false);
 			}
 		});
@@ -71,6 +73,7 @@ public class Main {
 				Mainpanel.setVisible(false);
 				ReligionComparePanel.setVisible(false);
 				CountryAddPanel.setVisible(true);
+				Mainpanel.setMoreVisible(false);
 				//MoreInfoPanel.setVisible(true);
 			}
 		});

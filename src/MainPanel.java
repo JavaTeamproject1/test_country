@@ -26,7 +26,6 @@ public class MainPanel extends JPanel {
 	private ReligionComparePanel ReligionComparePanel;
 	private MoreInfoPanel MoreInfoPanel;
 	protected static String Area = null;
-	
 	public MainPanel(JFrame frame) {
 		super();
 		panelInit(frame);
@@ -94,6 +93,8 @@ public class MainPanel extends JPanel {
 		JTextArea textArea_m_c = new JTextArea();
 		textArea_m_c.setBounds(25, 250, 690, 28);
 		add(textArea_m_c);
+		
+
 
 		JButton btnApply = new JButton("국가 적용");
 		btnApply.addActionListener(new ActionListener() {
@@ -162,13 +163,18 @@ public class MainPanel extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
 				MoreInfoPanel = new MoreInfoPanel(frame, MainPanel.this);
-				MoreInfoPanel.setVisible(true);
+				setMoreVisible(true);
 			}
 		});
 		
 		btnMore.setBounds(498, 370, 126, 23);
 		this.add(btnMore);
 
+	}
+	
+	
+	public void setMoreVisible(boolean flag) {
+		MoreInfoPanel.setVisible(flag);
 	}
 
 }
