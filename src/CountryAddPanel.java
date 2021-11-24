@@ -223,8 +223,7 @@ public class CountryAddPanel extends JPanel {
 	        	 world[15] = textArea_ETC.getText();
 	        	 
 	        	 db.SaveDb(world);
-//	        	 JOptionPane.showMessageDialog(null, "추가 되었습니다.");
-	        	 JOptionPane.showMessageDialog(null, "ㅁㄴㅇㄻㄴㅇㄻㄴㅇㄻㄴㅇㄻㄴㅇㄻㄴㅇㄻㄴㅇㄻㄴㅇㄹㄴㅇㄹ\nㄻㄴㅇㄻㄴㅇㄻㄴㅇㄻㄴㅇㄻㄴㅇㄹㄴㅇ\nㄴㅁㅇㄻㄴㅇㄻㄴㅇㄻㄴㅇㄹㄴㅁㅇㄹㄴㅁㄹ\nㅁㄴㅇㄻㄴㅇㄻㄴㅇㄻㄴㅇㄹ","타이틀 내용",JOptionPane.PLAIN_MESSAGE);
+	        	 JOptionPane.showMessageDialog(null, "추가 되었습니다.");
 	         } 
 	     });
 	         btnApply.setBounds(498, 370, 126, 23);
