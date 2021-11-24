@@ -52,26 +52,6 @@ public class CountryDB {
 		return country;
 	}
 	
-	public ResultSet getCountryDataWith_Pg(String date, String place) {
-		String range = Integer.toString((Integer.parseInt(date) + 6));
-
-		ResultSet rs=null;
-		String query;
-		PreparedStatement ps;
-		try {
-			query = "SELECT * FROM pollution WHERE (DATE BETWEEN ? AND ?) AND PLACE=?";
-			ps = connection.prepareStatement(query);
-			ps.setString(1, date);
-			ps.setString(2, range);
-			ps.setString(3, place);
-			rs = ps.executeQuery();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return rs; 
-	}
-	
 	public void SaveDb(String a[]) {
 		try {
 	         PreparedStatement ps = null;

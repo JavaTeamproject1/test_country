@@ -85,6 +85,7 @@ public class Main {
 		frame.setBounds(100, 100, 650, 430);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		 frame.setLocationRelativeTo(null);
 	}
 
 	private void Initialize() {
