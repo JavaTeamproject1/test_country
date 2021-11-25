@@ -32,7 +32,7 @@ public class CountryAddPanel extends JPanel {
 	}
 
 	private void panelInit(JFrame frame) {
-		this.setBackground(new Color(225, 240, 255));
+		this.setBackground(new Color(153, 204, 255));
 		this.setBounds(0, 0, 750, 500);
 		frame.getContentPane().add(this);
 		this.setLayout(null);
