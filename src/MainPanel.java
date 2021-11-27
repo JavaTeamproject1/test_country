@@ -40,7 +40,7 @@ public class MainPanel extends JPanel {
 		this.setLayout(null);
 
 		// 메인 화면 라벨
-		JLabel tilteLabel = new JLabel("Country Imformation");
+		JLabel tilteLabel = new JLabel("Country Information");
 		tilteLabel.setFont(new Font("Arial", Font.BOLD, 35));
 		tilteLabel.setForeground(new Color(0, 35, 110));
 		tilteLabel.setHorizontalAlignment(JLabel.CENTER);
