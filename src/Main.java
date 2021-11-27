@@ -32,8 +32,8 @@ public class Main {
 		x.setForeground(Color.WHITE);
 		x.setFont(new Font("돋움", Font.BOLD, 15));
 
-		m1 = new JMenuItem("Main Pannel");
-		m2 = new JMenuItem("Religion Pannel");
+		m1 = new JMenuItem("Main Panel");
+		m2 = new JMenuItem("Religion Panel");
 		m3 = new JMenuItem("Add Country");
 
 		x.add(m1);
